@@ -1205,9 +1205,15 @@ class MessageService
     public $states = [];
     public $positions = [];
 
-    public function __construct($category=null)
+    public function __construct($category=null,$address="messages")
     {
-        $base = __DIR__ . "/messages/";
+
+        //آدرس پوشه مسیج
+        //نکته: در صورتی که کتابخانه را از گیت‌هاب دانلود کردید بهتر است این فولدر رو کنار پروژه قرار داده و آدرس دهید.
+        //مثلا:
+        //"../../messages"
+        $base = __DIR__ . "/$address/";
+
 
         // پیام‌های مشترک
         $this->messages = include $base . "common.php";
