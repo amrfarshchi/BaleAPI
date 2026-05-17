@@ -1271,6 +1271,16 @@ class MessageService
         return $text;
     }
 
+    public function readPosition($key)
+    {
+        if (count($this->positions)==0){return "[$key]";}
+
+        $positions= array_flip($this->positions);
+        $position = array_key_exists($key,$positions) ? $positions[$key] : "[$key]";
+
+        return $position;
+    }
+
     public function keyboard($key)
     {
         return array_key_exists($key,$this->messages['keyboards']) ? $this->messages['keyboards'][$key] : "";
