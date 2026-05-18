@@ -1250,7 +1250,8 @@ class MessageService
     {
         if (count($this->positions)==0){return "[$position]";}
 
-        $key=$this->positions[$position];
+        $Positions= array_flip($this->positions);
+        $key=$Positions[$position];
         $text = array_key_exists($key,$this->messages) ? $this->messages[$key] : "[$key]";
 
         foreach ($params as $k => $v) {
@@ -1275,8 +1276,7 @@ class MessageService
     {
         if (count($this->positions)==0){return "[$key]";}
 
-        $positions= array_flip($this->positions);
-        $position = array_key_exists($key,$positions) ? $positions[$key] : "[$key]";
+        $position = array_key_exists($key,$this->positions) ? $this->positions[$key] : "[$key]";
 
         return $position;
     }
